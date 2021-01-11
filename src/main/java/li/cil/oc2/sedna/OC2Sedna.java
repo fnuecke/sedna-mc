@@ -1,7 +1,5 @@
 package li.cil.oc2.sedna;
 
-import net.minecraftforge.fml.common.Mod;
+public class OC2Sedna {
 
-@Mod("oc2-sedna")
-public final class OC2Sedna {
 }
