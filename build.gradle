@@ -10,11 +10,17 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+configurations {
+    embed
+    implementation.extendsFrom embed
+	}
+	
 minecraft {
 }
 
-
 repositories {
+    mavenCentral()
+    maven { url "http://maven.cil.li/" }
     maven { url = "http://maven.fabricmc.net/" }
 }
 
@@ -24,13 +30,10 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	
-	// Fabric API. This is technically optional, but you probably want it anyway.
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-    // https://mvnrepository.com/artifact/org.graalvm.sdk/graal-sdk
-    compile group: 'org.graalvm.sdk', name: 'graal-sdk', version: '20.3.0'
-    implementation 'org.graalvm.truffle:truffle-tck:20.3.0'
-    implementation 'org.graalvm.compiler:compiler:20.3.0'
+    //Sedna https://github.com/fnuecke/sedna
+	embed('li.cil.ceres:ceres:0.0.2+19') { transitive = false }
+    embed('li.cil.sedna:sedna:0.0.1+88') { transitive = false }
+    embed('li.cil.sedna:sedna-buildroot:0.0.1+10') { transitive = false }
 }
 
 processResources {
