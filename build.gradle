@@ -31,7 +31,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	
     //Sedna https://github.com/fnuecke/sedna
-	embed('li.cil.ceres:ceres:0.0.2+19') { transitive = false }
+    embed('li.cil.ceres:ceres:0.0.2+19') { transitive = false }
     embed('li.cil.sedna:sedna:0.0.1+88') { transitive = false }
     embed('li.cil.sedna:sedna-buildroot:0.0.1+10') { transitive = false }
 }
