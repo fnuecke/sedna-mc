@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "sedna",
+  "version": "${version}",
+  "name": "oc2-sedna",
+  "description": "Sedna adds RISC-V emulation for opencomputers 2.",
+  "authors": [
+    "Sangar",
+    "Ecobuilder13"
+  ],
+  "contact": {
+    "homepage": "https://github.com/fnuecke/oc2-sedna/tree/fabric/1.16.4",
+    "sources": "https://github.com/fnuecke/oc2-sedna/tree/fabric/1.16.4"
+  },
+
+  "license": "MIT",
+  "icon": "assets/sedna/icon.png",
+
+  "environment": "*",
+  
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+
+  "custom": {
+    "modmenu:api": true
+  }
+
+}
