@@ -1,6 +1,6 @@
 {
-    "pack": {
-        "description": "Sedna Resources",
-        "pack_format": 5
-    }
+  "pack": {
+    "description": "Sedna Resources",
+    "pack_format": 6
+  }
 }

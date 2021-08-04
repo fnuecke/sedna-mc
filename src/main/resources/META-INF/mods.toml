@@ -1,28 +1,26 @@
 modLoader = "javafml"
-loaderVersion = "[31,)"
-issueTrackerURL = "${mod_issues_url}"
+loaderVersion = "[36,)"
 license = "MIT"
 
 [[mods]]
-modId = "oc2-sedna"
-version = "${mod_version}"
-displayName = "${mod_name}"
-displayURL = "${mod_url}"
-#logoFile = "logo.png"
+modId = "sedna"
+version = "${file.jarVersion}"
+displayName = "Sedna for Minecraft"
+logoFile = "logo.png"
 authors = "Sangar"
 description = '''
-Virtual machine and binary images for OpenComputers2.
+RISC-V Virtual Machine and binary images for computer mods.
 '''
 
 [[dependencies.oc2-sedna]]
 modId = "forge"
 mandatory = true
-versionRange = "[${forge_version_min},)"
+versionRange = "[36.1.13,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.oc2-sedna]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[${minecraft_version_min}]"
+versionRange = "[1.16.5,1.17)"
 ordering = "NONE"
 side = "BOTH"
