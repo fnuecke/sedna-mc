@@ -56,8 +56,8 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    embed('li.cil.ceres:ceres:0.0.2+20') { transitive = false }
-    embed('li.cil.sedna:sedna:1.0.1+101') { transitive = false }
+    embed('li.cil.ceres:ceres:0.0.3+') { transitive = false }
+    embed('li.cil.sedna:sedna:1.0.1+') { transitive = false }
     embed('li.cil.sedna:sedna-buildroot:0.0.1+15') { transitive = false }
 }
 
@@ -119,13 +119,13 @@ jar {
 
     manifest {
         attributes([
-                "Specification-Title"     : 'sedna_mc',
-                "Specification-Vendor"    : 'Sangar',
-                "Specification-Version"   : '1',
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : "${semver}",
-                "Implementation-Vendor"   : 'Sangar',
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                'Specification-Title'     : 'sedna_mc',
+                'Specification-Vendor'    : 'Sangar',
+                'Specification-Version'   : '1',
+                'Implementation-Title'    : project.name,
+                'Implementation-Version'  : "${semver}",
+                'Implementation-Vendor'   : 'Sangar',
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
