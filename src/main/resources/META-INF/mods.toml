@@ -10,6 +10,12 @@ logoFile = "logo.png"
 authors = "Sangar"
 description = '''
 RISC-V Virtual Machine and binary images for computer mods.
+
+This mod contains a Linux distribution built from the "sedna" branch of the following repository:
+
+  https://github.com/fnuecke/buildroot
+
+The licenses for the embedded software are embedded in the JAR file containing this mod, inside the "licenses" directory.
 '''
 
 [[dependencies.oc2-sedna]]
