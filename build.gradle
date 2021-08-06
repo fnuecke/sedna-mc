@@ -39,7 +39,6 @@ if (build_number == null)
 
 version = "${semver}+${build_number}"
 group = 'li.cil.sedna'
-archivesBaseName = 'sedna'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
