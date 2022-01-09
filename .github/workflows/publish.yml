@@ -32,6 +32,11 @@ jobs:
             ~/.gradle/wrapper
           key: ubuntu-latest-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: ubuntu-latest-gradle-
+      - name: Build with Gradle
+        run: ./gradlew -Psemver='${{ steps.split_tag.outputs._1 }}' build
+        env:
+          GPR_USER: ${{ secrets.GPR_USER }}
+          GPR_KEY: ${{ secrets.GPR_KEY }}
 
       - name: Add Artifacts to Github Release
         uses: alexellis/upload-assets@0.3.0
