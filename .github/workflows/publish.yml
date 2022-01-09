@@ -5,8 +5,7 @@ on:
     types: [published]
 
 jobs:
-  build:
-    name: publish
+  publish-github:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,11 +32,6 @@ jobs:
             ~/.gradle/wrapper
           key: ubuntu-latest-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: ubuntu-latest-gradle-
-      - name: Build with Gradle
-        run: ./gradlew -Psemver='${{ steps.split_tag.outputs._1 }}' build
-        env:
-          GPR_USER: ${{ secrets.GPR_USER }}
-          GPR_KEY: ${{ secrets.GPR_KEY }}
 
       - name: Add Artifacts to Github Release
         uses: alexellis/upload-assets@0.3.0
@@ -53,6 +47,34 @@ jobs:
           GPR_KEY: ${{ secrets.GPR_KEY }}
           GITHUB_MAVEN_URL: 'https://maven.pkg.github.com/${{ github.repository }}'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-curse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Extract Version from Tag
+        uses: rishabhgupta/split-by@v1
+        id: split_tag
+        with:
+          string: ${{ github.event.release.tag_name }}
+          split-by: '/'
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ubuntu-latest-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: ubuntu-latest-gradle-
 
       # Set Curseforge release type based on pre-release flag.
       - name: Set release type to 'release'
