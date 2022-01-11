@@ -61,7 +61,7 @@ dependencies {
 
     embed('li.cil.ceres:ceres:0.0.4') { transitive = false }
     embed('li.cil.sedna:sedna:2.0.3') { transitive = false }
-    embed('li.cil.sedna:sedna-buildroot:0.0.4') { transitive = false }
+    embed('li.cil.sedna:sedna-buildroot:0.0.5') { transitive = false }
 }
 
 minecraft {
