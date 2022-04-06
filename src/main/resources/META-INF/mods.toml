@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[39,)"
+loaderVersion = "[40,)"
 license = "MIT"
 
 [[mods]]
@@ -21,12 +21,12 @@ The licenses for the embedded software are embedded in the JAR file containing t
 [[dependencies.oc2-sedna]]
 modId = "forge"
 mandatory = true
-versionRange = "[39.0.4,)"
+versionRange = "[40.0.40,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.oc2-sedna]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.18.1,1.19)"
+versionRange = "[1.18.2,1.19)"
 ordering = "NONE"
 side = "BOTH"
