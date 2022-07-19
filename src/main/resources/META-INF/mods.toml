@@ -21,7 +21,7 @@ The licenses for the embedded software are embedded in the JAR file containing t
 [[dependencies.oc2-sedna]]
 modId = "forge"
 mandatory = true
-versionRange = "[40.0.40,)"
+versionRange = "[40.1.0,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.oc2-sedna]]
