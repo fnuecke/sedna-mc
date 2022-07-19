@@ -33,10 +33,7 @@ def getGitRef() {
 version = "${semver}+${getGitRef()}"
 group = 'li.cil.sedna'
 
-java.toolchain {
-    languageVersion = JavaLanguageVersion.of(17)
-    vendor = JvmVendorSpec.ADOPTOPENJDK
-}
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 configurations {
     embed
