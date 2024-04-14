@@ -10,9 +10,6 @@ buildscript {
 
 plugins {
     id 'java'
-    id 'idea'
-    id 'maven-publish'
-    id 'com.matthewprenger.cursegradle' version '1.4.0'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
@@ -66,49 +63,6 @@ dependencies {
 
 minecraft {
     mappings channel: 'official', version: minecraft_version
-
-    runs {
-        client {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'info'
-
-            mods {
-                sedna {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'info'
-
-            mods {
-                sedna {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'info'
-
-            args '--mod', 'sedna', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                sedna {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
 }
 
 jar {
@@ -145,46 +99,4 @@ reobf {
 
 artifacts {
     archives shadowJar
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            groupId = project.group
-            artifactId = project.name
-            version = semver
-            artifact shadowJar
-        }
-    }
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = System.getenv("GITHUB_MAVEN_URL") ?: ""
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
-}
-
-curseforge {
-    apiKey = System.getenv('CURSEFORGE_API_KEY') ?: ""
-    project {
-        id = curse_project_id
-        releaseType = System.getenv('CURSEFORGE_RELEASE_TYPE') ?: "alpha"
-        changelogType = 'markdown'
-        changelog = System.getenv("CHANGELOG") ?: "Changelog not available."
-        addGameVersion 'Forge'
-        addGameVersion minecraft_version
-        addGameVersion 'Java 17'
-    }
-}
-
-idea {
-    module {
-        for (final String exclude in ['out', 'logs', 'run', 'src/generated']) {
-            excludeDirs += file(exclude)
-        }
-    }
 }
