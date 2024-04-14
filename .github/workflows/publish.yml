@@ -50,7 +50,7 @@ jobs:
         with:
           asset_paths: '["./build/libs/*.jar"]'
 
-      - name: Publish to Curseforge and Minotaur (Forge)
+      - name: Publish (Forge)
         uses: Kir-Antipov/mc-publish@v3
         with:
           name: ${{ github.event.repository.name }}-MC${{ steps.split_tag.outputs.mc_version }}-${{ steps.split_tag.outputs.mod_version }}

@@ -30,3 +30,6 @@ mandatory = true
 versionRange = "[1.18.2,1.19)"
 ordering = "NONE"
 side = "BOTH"
+
+[mc-publish]
+curseforge = 511276
